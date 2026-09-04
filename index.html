@@ -1,0 +1,566 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+
+.ec-post{
+  --ec-paper:#F4F1FB;
+  --ec-paper-deep:#E4DEF6;
+  --ec-dark:#2A1362;
+  --ec-ink:#221C4A;
+  --ec-soft:#5B5580;
+  --ec-s:#E5175A;
+  --ec-f:#0B6FD4;
+  --ec-t:#E08700;
+  --ec-rule:rgba(34,28,74,.16);
+  background:var(--ec-paper);
+  background-image:linear-gradient(rgba(34,28,74,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(34,28,74,.06) 1px,transparent 1px);
+  background-size:28px 28px;
+  color:var(--ec-ink);
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:17px;line-height:1.62;text-align:left;
+  margin:0;padding:0;overflow-x:clip;
+}
+.ec-post *{box-sizing:border-box}
+.ec-post h1,.ec-post h2,.ec-post h3,.ec-post summary,.ec-post button{font-family:Archivo,"Helvetica Neue",Arial,sans-serif}
+.ec-post p{margin:0 0 1.1em;color:var(--ec-ink)}
+.ec-post a{color:var(--ec-f)}
+.ec-post img,.ec-post svg{max-width:100%}
+.ec-post :focus-visible{outline:3px solid var(--ec-t);outline-offset:3px}
+.ec-post .ec-wrap{max-width:900px;margin:0 auto;padding:0 22px}
+.ec-post .ec-col{max-width:34rem}
+
+.ec-post .ec-nav{
+  border-bottom:2px solid var(--ec-ink);background:var(--ec-paper);
+}
+.ec-post .ec-nav .ec-wrap{display:flex;gap:6px;align-items:center;padding-top:10px;padding-bottom:10px;overflow-x:auto;scrollbar-width:none}
+.ec-post .ec-nav .ec-wrap::-webkit-scrollbar{display:none}
+.ec-post .ec-nav b{font-family:Archivo,sans-serif;font-size:.85rem;color:var(--ec-ink);white-space:nowrap;margin-right:8px;flex:none}
+.ec-post .ec-nav a{
+  font-family:Archivo,sans-serif;font-size:.82rem;font-weight:700;
+  color:var(--ec-soft);text-decoration:none;white-space:nowrap;
+  padding:6px 11px;border:1px solid transparent;flex:none;
+}
+.ec-post .ec-nav a:hover,.ec-post .ec-nav a:focus-visible{color:var(--ec-ink);border-color:var(--ec-ink);text-decoration:none}
+.ec-post [id]{scroll-margin-top:16px}
+@media (max-width:700px){ .ec-post .ec-nav b{display:none} }
+.ec-post .ec-post-head{
+  background:var(--ec-dark);color:#F6F2FF;border-bottom:6px solid var(--ec-ink);
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.ec-post .ec-post-head .ec-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;padding-top:48px;padding-bottom:46px}
+.ec-post .ec-post-head h1{font-size:clamp(2.1rem,5.6vw,3.6rem);font-weight:900;line-height:.95;letter-spacing:-.028em;margin:0 0 18px;color:#fff}
+.ec-post .ec-dek{color:#D6CCFA;font-size:1.03rem;max-width:30rem}
+.ec-post .ec-byline{font-family:Archivo,sans-serif;font-size:.82rem;font-weight:500;color:#B9A8F2;margin:20px 0 0;line-height:1.9}
+.ec-post .ec-byline strong{color:#fff;font-weight:700}
+.ec-post .ec-swatches{display:flex;margin-top:22px;border:1px solid rgba(255,255,255,.2)}
+.ec-post .ec-swatches div{flex:1;padding:9px 10px 10px;font-family:Archivo,sans-serif;font-size:.7rem;font-weight:700;color:#fff;line-height:1.25}
+.ec-post .ec-sw-s{background:var(--ec-s)}
+.ec-post .ec-sw-f{background:var(--ec-f)}
+.ec-post .ec-sw-t{background:var(--ec-t);color:#221C4A}
+
+.ec-post section{padding:50px 0}
+.ec-post section.ec-wrap{padding:50px 22px}
+.ec-post .ec-rule-top{border-top:1px solid var(--ec-rule)}
+.ec-post h2{font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:900;letter-spacing:-.02em;line-height:1.1;margin:0 0 18px;max-width:20ch;color:var(--ec-ink)}
+.ec-post h3{font-size:1.04rem;font-weight:700;margin:0 0 8px;color:var(--ec-ink)}
+.ec-post .ec-lead{font-size:1.13rem}
+.ec-post .ec-small{font-size:.94rem;color:var(--ec-soft)}
+
+.ec-post .ec-toc{border:2px solid var(--ec-ink);padding:18px 22px;margin:40px 0 0;background:rgba(255,255,255,.6)}
+.ec-post .ec-toc h2{font-size:.95rem;margin:0 0 10px}
+.ec-post .ec-toc ol{margin:0;padding-left:20px;font-size:.96rem}
+.ec-post .ec-toc li{padding:3px 0}
+.ec-post .ec-toc a{color:var(--ec-ink)}
+
+.ec-post .ec-ficha{display:grid;grid-template-columns:180px 1fr;margin:0}
+.ec-post .ec-ficha dt{font-family:Archivo,sans-serif;font-weight:700;font-size:.85rem;padding:13px 16px 13px 0;border-top:1px solid var(--ec-rule)}
+.ec-post .ec-ficha dd{margin:0;padding:13px 0;border-top:1px solid var(--ec-rule)}
+.ec-post .ec-ficha dt:first-of-type,.ec-post .ec-ficha dd:first-of-type{border-top:2px solid var(--ec-ink)}
+
+.ec-post .ec-plano{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:start;padding:40px 0;border-top:1px solid var(--ec-rule)}
+.ec-post .ec-plano svg{width:100%;height:auto;background:rgba(255,255,255,.6);border:1px solid var(--ec-rule)}
+.ec-post .ec-tag{display:inline-block;font-family:Archivo,sans-serif;font-weight:700;font-size:.77rem;color:#fff;padding:4px 10px;margin-bottom:12px}
+.ec-post .ec-t-s{background:var(--ec-s)}
+.ec-post .ec-t-f{background:var(--ec-f)}
+.ec-post .ec-t-t{background:var(--ec-t);color:#221C4A}
+.ec-post .ec-datos{margin:18px 0 0;padding:0;list-style:none;font-size:.96rem}
+.ec-post .ec-datos li{padding:9px 0 9px 15px;border-left:3px solid var(--ec-rule);margin:0}
+.ec-post .ec-plano.ec-s .ec-datos li{border-left-color:var(--ec-s)}
+.ec-post .ec-plano.ec-f .ec-datos li{border-left-color:var(--ec-f)}
+.ec-post .ec-plano.ec-t .ec-datos li{border-left-color:var(--ec-t)}
+.ec-post .ec-datos b{font-family:Archivo,sans-serif;font-size:.85rem;display:block;color:var(--ec-soft)}
+
+.ec-post .ec-clasif{border:2px solid var(--ec-ink);background:rgba(255,255,255,.6)}
+.ec-post .ec-mov{border-bottom:1px solid var(--ec-rule)}
+.ec-post .ec-mov:last-child{border-bottom:0}
+.ec-post .ec-mov summary{
+  cursor:pointer;list-style:none;padding:14px 20px;font-weight:700;font-size:.95rem;
+  display:flex;align-items:center;gap:12px;
+}
+.ec-post .ec-mov summary::-webkit-details-marker{display:none}
+.ec-post .ec-mov summary::before{content:"";width:12px;height:12px;flex:none;border-radius:50%;background:var(--ec-ink)}
+.ec-post .ec-mov-s summary::before{background:var(--ec-s)}
+.ec-post .ec-mov-f summary::before{background:var(--ec-f)}
+.ec-post .ec-mov-t summary::before{background:var(--ec-t)}
+.ec-post .ec-mov[open] summary{background:var(--ec-paper-deep)}
+.ec-post .ec-mov-body{padding:4px 20px 20px 44px}
+.ec-post .ec-mov-plano{font-family:Archivo,sans-serif;font-weight:900;font-size:1.25rem;line-height:1.1;margin:0 0 3px}
+.ec-post .ec-mov-s .ec-mov-plano{color:var(--ec-s)}
+.ec-post .ec-mov-f .ec-mov-plano{color:var(--ec-f)}
+.ec-post .ec-mov-t .ec-mov-plano{color:#B36C00}
+.ec-post .ec-mov-eje{font-family:Archivo,sans-serif;font-weight:700;font-size:.86rem;color:var(--ec-soft);margin:0 0 10px}
+.ec-post .ec-mov-exp{margin:0;font-size:.96rem}
+
+.ec-post .ec-tabla-scroll{overflow-x:auto}
+.ec-post .ec-tabla{width:100%;border-collapse:collapse;font-size:.93rem;margin-top:8px}
+.ec-post .ec-tabla th,.ec-post .ec-tabla td{text-align:left;padding:12px 13px;border-top:1px solid var(--ec-rule);vertical-align:top}
+.ec-post .ec-tabla thead th{font-family:Archivo,sans-serif;font-size:.84rem;border-top:2px solid var(--ec-ink)}
+.ec-post .ec-tabla tbody th{font-family:Archivo,sans-serif;font-weight:700;font-size:.88rem;color:#fff;white-space:nowrap}
+.ec-post .ec-tabla tbody tr.ec-s th{background:var(--ec-s)}
+.ec-post .ec-tabla tbody tr.ec-f th{background:var(--ec-f)}
+.ec-post .ec-tabla tbody tr.ec-t th{background:var(--ec-t);color:#221C4A}
+
+.ec-post .ec-errores{list-style:none;margin:0;padding:0;counter-reset:ecx}
+.ec-post .ec-errores li{padding:15px 0 15px 44px;border-top:1px solid var(--ec-rule);position:relative;counter-increment:ecx;margin:0}
+.ec-post .ec-errores li::before{content:counter(ecx);position:absolute;left:0;top:15px;font-family:Archivo,sans-serif;font-weight:900;font-size:1.3rem;color:var(--ec-s)}
+.ec-post .ec-errores b{font-family:Archivo,sans-serif;font-size:.94rem;display:block}
+
+.ec-post .ec-cierre{background:var(--ec-dark);color:#F6F2FF;padding:56px 0}
+.ec-post .ec-cierre blockquote{font-family:Archivo,sans-serif;font-weight:900;font-size:clamp(1.4rem,3.4vw,2.2rem);line-height:1.1;letter-spacing:-.02em;margin:0;max-width:24ch;color:#fff;border:[...]
+.ec-post .ec-cierre cite{display:block;margin-top:16px;font-family:"Source Serif 4",serif;font-style:normal;color:#B9A8F2;font-size:.98rem}
+
+.ec-post .ec-fuentes{list-style:none;margin:16px 0 0;padding:0}
+.ec-post .ec-fuentes li{padding:12px 0;border-top:1px solid var(--ec-rule);font-size:.96rem;margin:0}
+.ec-post .ec-autor{border:2px solid var(--ec-ink);padding:20px 22px;margin-top:32px;background:rgba(255,255,255,.6);font-size:.96rem}
+
+.ec-post footer{padding:30px 0 50px;color:var(--ec-soft);font-size:.89rem;border-top:1px solid var(--ec-rule)}
+.ec-post footer.ec-wrap{padding:30px 22px 50px}
+.ec-post footer h3{color:var(--ec-ink)}
+.ec-post .ec-licencia{display:flex;gap:16px;align-items:flex-start;padding:15px 17px;border:1px solid var(--ec-rule);background:rgba(255,255,255,.6)}
+.ec-post .ec-licencia img{flex:none;margin-top:4px}
+.ec-post .ec-creditos-lista{list-style:none;margin:18px 0 0;padding:0}
+.ec-post .ec-creditos-lista li{padding:10px 0;border-top:1px solid var(--ec-rule);margin:0}
+.ec-post .ec-creditos-lista b{font-family:Archivo,sans-serif;font-size:.87rem;color:var(--ec-ink);display:block}
+
+.ec-post .ec-audio-btn[hidden]{display:none}
+.ec-post .ec-audio-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:Archivo,sans-serif;font-weight:700;font-size:.79rem;
+  background:transparent;border:1px solid var(--ec-ink);color:var(--ec-ink);
+  padding:6px 12px;margin:0 0 18px;cursor:pointer;border-radius:0;
+}
+.ec-post .ec-audio-btn:hover{background:var(--ec-paper-deep)}
+.ec-post .ec-audio-btn[data-playing="true"]{background:var(--ec-t);border-color:var(--ec-t);color:#221C4A}
+.ec-post .ec-audio-btn svg{width:14px;height:14px;flex:none}
+.ec-post .ec-audio-btn.ec-on-dark{border-color:rgba(255,255,255,.5);color:#F6F2FF}
+.ec-post .ec-audio-nota{font-size:.85rem;color:var(--ec-soft);font-style:italic;margin:0 0 24px}
+
+@media (max-width:820px){
+  .ec-post .ec-post-head .ec-wrap{grid-template-columns:1fr;gap:26px;padding-top:36px;padding-bottom:36px}
+  .ec-post .ec-plano{grid-template-columns:1fr;gap:18px}
+  .ec-post .ec-plano svg{max-width:270px}
+  .ec-post .ec-ficha{grid-template-columns:1fr}
+  .ec-post .ec-ficha dt{padding-bottom:0;border-top:1px solid var(--ec-rule)}
+  .ec-post .ec-ficha dd{padding-top:4px;border-top:0}
+  .ec-post .ec-ficha dd:first-of-type{border-top:0}
+  .ec-post .ec-licencia{flex-direction:column;gap:12px}
+}
+</style>
+
+<div class="ec-post" lang="es">
+<div class="ec-post-head" id="ec-inicio">
+  <div class="ec-wrap">
+    <div>
+      <h1>El mapa invisible que llevas encima</h1>
+      <p class="ec-dek">Un remate de voleibol dura menos de un segundo y parece un caos de brazos, cadera y tronco. No lo es. Cada tramo de ese gesto ocurre en un plano concreto y gira alrededor [...]
+      <p class="ec-byline"><strong>Biomec&#225;nica introductoria</strong><br>Lectura de 8 minutos &#183; Nivel: primer a&#241;o</p>
+      <div class="ec-swatches" aria-hidden="true">
+        <div class="ec-sw-s">Sagital<br>flexi&#243;n y extensi&#243;n</div>
+        <div class="ec-sw-f">Frontal<br>abducci&#243;n y aducci&#243;n</div>
+        <div class="ec-sw-t">Transversal<br>rotaciones</div>
+      </div>
+    </div>
+    <div>
+      <svg viewBox="0 0 340 400" role="img" aria-label="Voleibolista en el aire durante un remate, atravesada por los tres planos anat&#243;micos">
+        <path d="M60 250 L250 210 L300 240 L110 280 Z" fill="#E08700" opacity=".26"/>
+        <path d="M60 250 L250 210 L300 240 L110 280 Z" fill="none" stroke="#E08700" stroke-width="1.5" opacity=".85"/>
+        <path d="M92 60 L92 330 L235 355 L235 85 Z" fill="#0B6FD4" opacity=".26"/>
+        <path d="M92 60 L92 330 L235 355 L235 85 Z" fill="none" stroke="#7FC4FF" stroke-width="1.5" opacity=".9"/>
+        <path d="M150 55 L150 335 L232 300 L232 20 Z" fill="#E5175A" opacity=".3"/>
+        <path d="M150 55 L150 335 L232 300 L232 20 Z" fill="none" stroke="#FF7E9E" stroke-width="1.5" opacity=".9"/>
+        <g stroke="#F6F2FF" stroke-width="13" stroke-linecap="round" fill="none">
+          <path d="M176 128 L170 195"/><path d="M172 130 L196 92"/><path d="M196 92 L206 52"/>
+          <path d="M172 133 L143 158"/><path d="M143 158 L128 132"/>
+          <path d="M170 193 L188 238"/><path d="M188 238 L172 285"/>
+          <path d="M168 195 L146 232"/><path d="M146 232 L156 280"/>
+        </g>
+        <circle cx="180" cy="110" r="17" fill="#F6F2FF"/>
+        <circle cx="209" cy="40" r="13" fill="none" stroke="#F6F2FF" stroke-width="3"/>
+        <path d="M198 38 q11 6 22 0 M209 27 q-6 13 0 26" stroke="#F6F2FF" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<main>
+
+
+<nav class="ec-nav" aria-label="Secciones del art&#237;culo">
+  <div class="ec-wrap">
+    <b>Ir a</b>
+    <a href="#ec-posicion">Posici&#243;n</a>
+    <a href="#ec-planos">Planos</a>
+    <a href="#ec-practica">Practicar</a>
+    <a href="#ec-resumen">Tabla</a>
+    <a href="#ec-errores">Errores</a>
+    <a href="#ec-fuentes">Fuentes</a>
+  </div>
+</nav>
+<section class="ec-wrap" style="padding-top:44px">
+  <div class="ec-col">
+    <button class="ec-audio-btn" hidden type="button" data-nar="Camilo cursa segundo semestre de kinesiolog&#237;a. Le pidieron algo aparentemente sencillo: analizar el remate de una voleibolista[...]
+    <p class="ec-lead">Camilo cursa segundo semestre de kinesiolog&#237;a. Le pidieron algo aparentemente sencillo: analizar el remate de una voleibolista a partir de un video en c&#225;mara lent[...]
+    <p>Puso pausa en el momento del salto y empez&#243; a escribir. &#171;El brazo sube&#8230; el tronco se va hacia atr&#225;s&#8230; la cadera gira&#8230; la rodilla hace algo&#187;. A los diez[...]
+    <p>El problema no era el video. Era que estaba describiendo el movimiento sin un sistema de referencia. Cuando su docente le dibuj&#243; encima de la pantalla tres l&#225;minas transparentes [...]
+    <p>Ese sistema tiene tres piezas y se aprende en una tarde: la <strong>posici&#243;n anat&#243;mica</strong>, los <strong>tres planos</strong> y sus <strong>ejes</strong>.</p>
+
+    <nav class="ec-toc" aria-label="Contenido del art&#237;culo">
+      <h2>En este art&#237;culo</h2>
+      <ol>
+        <li><a href="#ec-posicion">El punto cero: la posici&#243;n anat&#243;mica</a></li>
+        <li><a href="#ec-planos">Tres l&#225;minas y tres varillas</a></li>
+        <li><a href="#ec-practica">Pru&#233;balo con un gesto</a></li>
+        <li><a href="#ec-resumen">Tabla de bolsillo</a></li>
+        <li><a href="#ec-errores">Cinco confusiones frecuentes</a></li>
+        <li><a href="#ec-fuentes">Fuentes y ficha del recurso</a></li>
+      </ol>
+    </nav>
+    <p class="ec-audio-nota" hidden>Cada secci&#243;n tiene un bot&#243;n para escuchar la narraci&#243;n. Se reproduce con la voz del propio dispositivo, as&#237; que no descarga ning&#250;n arc[...]
+  </div>
+</section>
+
+<section class="ec-wrap ec-rule-top" id="ec-posicion">
+  <div class="ec-plano">
+    <svg viewBox="0 0 260 400" role="img" aria-label="Figura de pie en posici&#243;n anat&#243;mica: mirada al frente, brazos a los lados, palmas hacia adelante y pies juntos">
+      <g stroke="rgba(34,28,74,.22)" stroke-width="1"><line x1="130" y1="10" x2="130" y2="390"/><line x1="20" y1="200" x2="240" y2="200"/></g>
+      <g stroke="#221C4A" stroke-width="15" stroke-linecap="round" fill="none">
+        <path d="M130 92 L130 205"/>
+        <path d="M104 105 L86 200"/><path d="M86 200 L80 258"/>
+        <path d="M156 105 L174 200"/><path d="M174 200 L180 258"/>
+        <path d="M112 205 L106 290"/><path d="M106 290 L104 360"/>
+        <path d="M148 205 L154 290"/><path d="M154 290 L156 360"/>
+      </g>
+      <circle cx="130" cy="58" r="24" fill="#221C4A"/>
+      <path d="M104 100 h52" stroke="#221C4A" stroke-width="15" stroke-linecap="round"/>
+      <g fill="#E08700"><rect x="68" y="258" width="22" height="26" rx="7"/><rect x="170" y="258" width="22" height="26" rx="7"/></g>
+      <g fill="#221C4A"><rect x="88" y="358" width="32" height="12" rx="5"/><rect x="140" y="358" width="32" height="12" rx="5"/></g>
+      <path d="M154 52 h48" stroke="#E08700" stroke-width="3" stroke-dasharray="6 5"/>
+      <path d="M196 46 l10 6 -10 6z" fill="#E08700"/>
+    </svg>
+    <div>
+      <h2>El punto cero: la posici&#243;n anat&#243;mica</h2>
+      <button class="ec-audio-btn" hidden type="button" data-nar="Antes de nombrar un movimiento hay que decir desde d&#243;nde se mide. Toda la terminolog&#237;a &#8212;flexi&#243;n, abducci&#243;n, r[...]
+      <p>Antes de nombrar un movimiento hay que decir desde d&#243;nde se mide. Toda la terminolog&#237;a &#8212;flexi&#243;n, abducci&#243;n, rotaci&#243;n interna&#8212; se define respecto a un[...]
+      <ul class="ec-datos">
+        <li><b>De pie</b>Bipedestaci&#243;n, cuerpo erguido y peso repartido.</li>
+        <li><b>Mirada al frente</b>Cabeza neutra, ojos al horizonte.</li>
+        <li><b>Brazos a los lados</b>Extendidos junto al tronco, sin separaci&#243;n.</li>
+        <li><b>Palmas hacia adelante</b>Antebrazos en supinaci&#243;n. Es el detalle que m&#225;s se olvida y el que ordena los movimientos del miembro superior.</li>
+        <li><b>Pies juntos y paralelos</b>Dedos apuntando al frente.</li>
+      </ul>
+      <p class="ec-small" style="margin-top:16px">En esta posici&#243;n todas las articulaciones se consideran en cero grados. Cualquier gesto se describe como una salida desde aqu&#237; y un reg[...]
+    </div>
+  </div>
+</section>
+
+<section class="ec-wrap ec-rule-top" id="ec-planos">
+  <div class="ec-col">
+    <h2>Tres l&#225;minas y tres varillas</h2>
+    <button class="ec-audio-btn" hidden type="button" data-nar="Imagina tres hojas de vidrio que atraviesan tu cuerpo en direcciones distintas. Cada hoja es un plano: el espacio donde se dibuja e[...]
+    <p>Imagina tres hojas de vidrio que atraviesan tu cuerpo en direcciones distintas. Cada hoja es un <strong>plano</strong>: el espacio donde se dibuja el movimiento. Atravesando cada hoja perp[...]
+    <p>La regla que resuelve casi todas las dudas: <strong>el eje siempre es perpendicular al plano en el que ocurre el movimiento</strong>. Si el gesto se ve completo de perfil, es sagital; si s[...]
+  </div>
+
+  <div class="ec-plano ec-s">
+    <svg viewBox="0 0 260 400" role="img" aria-label="Plano sagital: l&#225;mina vertical que divide el cuerpo en mitad derecha e izquierda, con el eje transversal atravesando la cadera durante u[...]
+      <path d="M130 20 L130 380 L236 336 L236 8 Z" fill="#E5175A" opacity=".22"/>
+      <path d="M130 20 L130 380 L236 336 L236 8 Z" fill="none" stroke="#E5175A" stroke-width="1.5"/>
+      <g stroke="#221C4A" stroke-width="15" stroke-linecap="round" fill="none">
+        <path d="M150 110 L140 215"/><path d="M146 120 L186 168"/>
+        <path d="M140 213 L188 250"/><path d="M188 250 L166 330"/>
+      </g>
+      <circle cx="152" cy="78" r="22" fill="#221C4A"/>
+      <rect x="148" y="328" width="42" height="12" rx="5" fill="#221C4A"/>
+      <line x1="52" y1="222" x2="228" y2="222" stroke="#E5175A" stroke-width="4" stroke-dasharray="9 6"/>
+      <circle cx="140" cy="222" r="7" fill="#E5175A"/>
+      <path d="M96 262 a58 58 0 0 1 -30 -52" fill="none" stroke="#E5175A" stroke-width="3"/>
+      <path d="M64 224 l4 -14 9 11z" fill="#E5175A"/>
+      <text x="30" y="206" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#E5175A">eje</text>
+    </svg>
+    <div>
+      <span class="ec-tag ec-t-s">Plano sagital</span>
+      <h3>Divide el cuerpo en mitad derecha y mitad izquierda</h3>
+      <button class="ec-audio-btn" hidden type="button" data-nar="Plano sagital. Divide el cuerpo en mitad derecha y mitad izquierda. Es el plano del perfil: todo lo que va hacia adelante y hacia[...]
+      <p>Es el plano del perfil. Todo lo que va hacia adelante y hacia atr&#225;s vive aqu&#237;: caminar, pedalear, bajar a una sentadilla, flexionar el codo para levantar un vaso.</p>
+      <ul class="ec-datos">
+        <li><b>Eje</b>Transversal o medio-lateral: horizontal, atraviesa el cuerpo de lado a lado.</li>
+        <li><b>Movimientos</b>Flexi&#243;n y extensi&#243;n. Tambi&#233;n dorsiflexi&#243;n y flexi&#243;n plantar del tobillo.</li>
+        <li><b>Ejemplo cotidiano</b>Sentadilla: cadera, rodilla y tobillo flexionan al bajar y extienden al subir.</li>
+        <li><b>En el remate</b>La carrera de aproximaci&#243;n y la extensi&#243;n explosiva de las piernas al despegar.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ec-plano ec-f">
+    <svg viewBox="0 0 260 400" role="img" aria-label="Plano frontal: l&#225;mina vertical que divide el cuerpo en parte anterior y posterior, con el eje anteroposterior durante una elevaci&#243;n[...]
+      <path d="M34 24 L34 376 L226 376 L226 24 Z" fill="#0B6FD4" opacity=".2"/>
+      <path d="M34 24 L34 376 L226 376 L226 24 Z" fill="none" stroke="#0B6FD4" stroke-width="1.5"/>
+      <g stroke="#221C4A" stroke-width="15" stroke-linecap="round" fill="none">
+        <path d="M130 96 L130 212"/>
+        <path d="M106 104 L64 132"/><path d="M64 132 L28 118"/>
+        <path d="M154 104 L196 132"/><path d="M196 132 L232 118"/>
+        <path d="M114 212 L104 296"/><path d="M104 296 L100 362"/>
+        <path d="M146 212 L156 296"/><path d="M156 296 L160 362"/>
+      </g>
+      <circle cx="130" cy="62" r="23" fill="#221C4A"/>
+      <path d="M106 102 h48" stroke="#221C4A" stroke-width="15" stroke-linecap="round"/>
+      <g fill="#221C4A"><rect x="84" y="360" width="30" height="12" rx="5"/><rect x="146" y="360" width="30" height="12" rx="5"/></g>
+      <circle cx="106" cy="112" r="11" fill="none" stroke="#0B6FD4" stroke-width="4"/>
+      <circle cx="106" cy="112" r="3.5" fill="#0B6FD4"/>
+      <path d="M64 176 a72 72 0 0 1 34 -56" fill="none" stroke="#0B6FD4" stroke-width="3"/>
+      <path d="M96 116 l12 3 -8 10z" fill="#0B6FD4"/>
+      <text x="40" y="200" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#0B6FD4">eje</text>
+    </svg>
+    <div>
+      <span class="ec-tag ec-t-f">Plano frontal o coronal</span>
+      <h3>Divide el cuerpo en parte anterior y parte posterior</h3>
+      <button class="ec-audio-btn" hidden type="button" data-nar="Plano frontal o coronal. Divide el cuerpo en parte anterior y parte posterior. Es el plano de la foto de frente: todo lo que se a[...]
+      <p>Es el plano de la foto de frente. Todo lo que se aleja o se acerca a la l&#237;nea media del cuerpo por los costados ocurre aqu&#237;.</p>
+      <ul class="ec-datos">
+        <li><b>Eje</b>Anteroposterior: horizontal, atraviesa el cuerpo de adelante hacia atr&#225;s.</li>
+        <li><b>Movimientos</b>Abducci&#243;n y aducci&#243;n. Tambi&#233;n la inclinaci&#243;n lateral del tronco y del cuello.</li>
+        <li><b>Ejemplo cotidiano</b>Salto en estrella (<i>jumping jack</i>) o una elevaci&#243;n lateral de brazos con mancuernas.</li>
+        <li><b>En el remate</b>La apertura de los brazos en el bloqueo y en la fase de armado antes del golpe.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ec-plano ec-t">
+    <svg viewBox="0 0 260 400" role="img" aria-label="Plano transversal: l&#225;mina horizontal que divide el cuerpo en parte superior e inferior, con el eje longitudinal vertical durante una rot[...]
+      <ellipse cx="130" cy="228" rx="106" ry="34" fill="#E08700" opacity=".24"/>
+      <ellipse cx="130" cy="228" rx="106" ry="34" fill="none" stroke="#E08700" stroke-width="1.5"/>
+      <g stroke="#221C4A" stroke-width="15" stroke-linecap="round" fill="none">
+        <path d="M130 96 L130 214"/>
+        <path d="M108 112 L74 152"/><path d="M74 152 L104 178"/>
+        <path d="M152 112 L186 148"/><path d="M186 148 L158 176"/>
+        <path d="M116 214 L106 300"/><path d="M106 300 L102 364"/>
+        <path d="M144 214 L154 300"/><path d="M154 300 L158 364"/>
+      </g>
+      <circle cx="138" cy="62" r="23" fill="#221C4A"/>
+      <path d="M108 110 h44" stroke="#221C4A" stroke-width="15" stroke-linecap="round"/>
+      <g fill="#221C4A"><rect x="86" y="362" width="30" height="12" rx="5"/><rect x="148" y="362" width="30" height="12" rx="5"/></g>
+      <line x1="130" y1="18" x2="130" y2="386" stroke="#E08700" stroke-width="4" stroke-dasharray="9 6"/>
+      <path d="M70 214 a70 26 0 0 0 120 0" fill="none" stroke="#E08700" stroke-width="3"/>
+      <path d="M186 200 l8 14 -16 2z" fill="#E08700"/>
+      <text x="140" y="34" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#E08700">eje</text>
+    </svg>
+    <div>
+      <span class="ec-tag ec-t-t">Plano transversal u horizontal</span>
+      <h3>Divide el cuerpo en parte superior e inferior</h3>
+      <button class="ec-audio-btn" hidden type="button" data-nar="Plano transversal u horizontal. Divide el cuerpo en parte superior e inferior. Es el plano de la vista desde arriba: aqu&#237; oc[...]
+      <p>Es el plano de la vista desde arriba. Aqu&#237; ocurre todo lo que gira sobre s&#237; mismo mientras el cuerpo se mantiene erguido.</p>
+      <ul class="ec-datos">
+        <li><b>Eje</b>Longitudinal o vertical: recorre el cuerpo de la cabeza a los pies.</li>
+        <li><b>Movimientos</b>Rotaci&#243;n interna y externa, rotaci&#243;n del tronco y de la cabeza, pronaci&#243;n y supinaci&#243;n del antebrazo.</li>
+        <li><b>Ejemplo cotidiano</b>Girar la cabeza para mirar atr&#225;s al retroceder en el carro, o rotar el torso al lanzar.</li>
+        <li><b>En el remate</b>El latigazo: la rotaci&#243;n del tronco y la rotaci&#243;n interna del hombro que aceleran la mano.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="ec-wrap ec-rule-top" id="ec-practica">
+  <div class="ec-col">
+    <h2>Pru&#233;balo con un gesto</h2>
+    <p>Elige un movimiento y comprueba d&#243;nde ocurre. Si puedes, hazlo de pie mientras lees.</p>
+  </div>
+    <div class="ec-clasif">
+    <details class="ec-mov ec-mov-s">
+      <summary>Sentadilla</summary>
+      <div class="ec-mov-body">
+        <p class="ec-mov-plano">Plano sagital</p>
+        <p class="ec-mov-eje">Eje transversal (medio-lateral)</p>
+        <p class="ec-mov-exp">Cadera, rodilla y tobillo flexionan al descender y extienden al subir. Todo el recorrido se ve completo si te grabas de perfil.</p>
+      </div>
+    </details>
+    <details class="ec-mov ec-mov-f">
+      <summary>Salto en estrella</summary>
+      <div class="ec-mov-body">
+        <p class="ec-mov-plano">Plano frontal</p>
+        <p class="ec-mov-eje">Eje anteroposterior</p>
+        <p class="ec-mov-exp">Brazos y piernas se alejan de la l&#237;nea media (abducci&#243;n) y regresan a ella (aducci&#243;n). Se ve completo de frente.</p>
+      </div>
+    </details>
+    <details class="ec-mov ec-mov-t">
+      <summary>Giro de cabeza</summary>
+      <div class="ec-mov-body">
+        <p class="ec-mov-plano">Plano transversal</p>
+        <p class="ec-mov-eje">Eje longitudinal (vertical)</p>
+        <p class="ec-mov-exp">La cabeza rota sobre su propio eje vertical, sin inclinarse ni bajar el ment&#243;n.</p>
+      </div>
+    </details>
+    <details class="ec-mov ec-mov-s">
+      <summary>Flexi&#243;n de codo</summary>
+      <div class="ec-mov-body">
+        <p class="ec-mov-plano">Plano sagital</p>
+        <p class="ec-mov-eje">Eje transversal (medio-lateral)</p>
+        <p class="ec-mov-exp">El antebrazo se acerca al brazo desplaz&#225;ndose hacia adelante. Mismo plano que la marcha o la sentadilla.</p>
+      </div>
+    </details>
+    <details class="ec-mov ec-mov-f">
+      <summary>Inclinaci&#243;n lateral del tronco</summary>
+      <div class="ec-mov-body">
+        <p class="ec-mov-plano">Plano frontal</p>
+        <p class="ec-mov-eje">Eje anteroposterior</p>
+        <p class="ec-mov-exp">El tronco se desplaza hacia un costado sin girar ni ir hacia adelante. Suele confundirse con la rotaci&#243;n.</p>
+      </div>
+    </details>
+    <details class="ec-mov ec-mov-t">
+      <summary>Rotaci&#243;n del tronco al lanzar</summary>
+      <div class="ec-mov-body">
+        <p class="ec-mov-plano">Plano transversal</p>
+        <p class="ec-mov-eje">Eje longitudinal (vertical)</p>
+        <p class="ec-mov-exp">La cintura escapular gira sobre la p&#233;lvica. Es el motor de la velocidad en un lanzamiento o un remate.</p>
+      </div>
+    </details>
+    <details class="ec-mov ec-mov-x">
+      <summary>Remate de voleibol</summary>
+      <div class="ec-mov-body">
+        <p class="ec-mov-plano">Los tres planos a la vez</p>
+        <p class="ec-mov-eje">Los tres ejes</p>
+        <p class="ec-mov-exp">Carrera y salto en el sagital, apertura de brazos en el frontal, latigazo del tronco y del hombro en el transversal. Por eso se analiza por fases y no como un bloque[...]
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="ec-wrap ec-rule-top" id="ec-resumen">
+  <div class="ec-col">
+    <h2>Tabla de bolsillo</h2>
+    <p>Lo m&#237;nimo que conviene tener memorizado antes de un examen pr&#225;ctico.</p>
+  </div>
+  <div class="ec-tabla-scroll">
+    <table class="ec-tabla">
+      <thead>
+        <tr><th scope="col">Plano</th><th scope="col">Divide el cuerpo en</th><th scope="col">Eje</th><th scope="col">Movimientos</th><th scope="col">C&#243;mo verlo</th></tr>
+      </thead>
+      <tbody>
+        <tr class="ec-s"><th scope="row">Sagital</th><td>Derecha e izquierda</td><td>Transversal (medio-lateral)</td><td>Flexi&#243;n y extensi&#243;n</td><td>Gr&#225;bate de perfil</td></tr>
+        <tr class="ec-f"><th scope="row">Frontal o coronal</th><td>Anterior y posterior</td><td>Anteroposterior</td><td>Abducci&#243;n y aducci&#243;n</td><td>Gr&#225;bate de frente</td></tr>
+        <tr class="ec-t"><th scope="row">Transversal</th><td>Superior e inferior</td><td>Longitudinal (vertical)</td><td>Rotaciones</td><td>Gr&#225;bate desde arriba</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="ec-wrap ec-rule-top" id="ec-errores">
+  <div class="ec-col">
+    <h2>Cinco confusiones frecuentes</h2>
+    <button class="ec-audio-btn" hidden type="button" data-nar="Cinco confusiones frecuentes. Primera: confundir plano con eje. El plano es la superficie donde se dibuja el movimiento, el eje es [...]
+    <ul class="ec-errores">
+      <li><b>Confundir plano con eje</b>El plano es la superficie donde se dibuja el movimiento; el eje es la l&#237;nea alrededor de la cual gira. Siempre son perpendiculares entre s&#237;.</li>
+      <li><b>Llamar rotaci&#243;n a la inclinaci&#243;n lateral</b>Inclinar el tronco a un costado es plano frontal. Girarlo sin moverlo de sitio es plano transversal.</li>
+      <li><b>Olvidar las palmas hacia adelante</b>Sin supinaci&#243;n no hay posici&#243;n anat&#243;mica, y los movimientos del antebrazo se describen al rev&#233;s.</li>
+      <li><b>Esperar que un gesto real use un solo plano</b>Correr, lanzar o rematar combinan los tres. Se analizan por fases, no como un bloque.</li>
+      <li><b>Asumir que el plano sagital pasa siempre por la mitad</b>El plano medio s&#237;; los planos sagitales paralelos pueden pasar por cualquier punto del cuerpo, por ejemplo por el hombro[...]
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<div class="ec-cierre">
+  <div class="ec-wrap">
+    <blockquote>Cada gesto del cuerpo se descompone en mapas invisibles de planos y ejes.</blockquote>
+    <cite>Camilo volvi&#243; al video del remate. Esta vez escribi&#243; tres l&#237;neas en lugar de veinte, y las tres dec&#237;an algo. Entender los planos y ejes no es solo memorizar anatom&#[...]
+    <button class="ec-audio-btn ec-on-dark" hidden type="button" style="margin-top:22px" data-nar="El movimiento humano no es ca&#243;tico: cada gesto de nuestro cuerpo se descompone en mapas inv[...]
+  </div>
+</div>
+
+<section class="ec-wrap" id="ec-fuentes">
+  <div class="ec-col">
+    <h2>Fuentes y ficha del recurso</h2>
+    <ul class="ec-fuentes">
+      <li>Neumann, D. A. (2010). <i>Kinesiology of the Musculoskeletal System: Foundations for Rehabilitation</i> (2.&#170; ed.). Mosby Elsevier.</li>
+      <li>Kapandji, A. I. (2012). <i>Fisiolog&#237;a articular</i> (6.&#170; ed.). Editorial M&#233;dica Panamericana.</li>
+    </ul>
+    <dl class="ec-ficha" style="margin-top:34px">
+      <dt>Tema</dt><dd>Posici&#243;n anat&#243;mica, planos y ejes de movimiento aplicados al gesto deportivo.</dd>
+      <dt>Aprendizaje esperado</dt><dd>Reconocer visualmente c&#243;mo se divide el cuerpo humano e identificar en qu&#233; plano y alrededor de qu&#233; eje ocurre cada movimiento articular.</dd[...]
+      <dt>Valor pedag&#243;gico</dt><dd>Traduce conceptos abstractos de biomec&#225;nica a situaciones reales: una sentadilla, un salto en estrella, un giro de tronco.</dd>
+      <dt>Audiencia</dt><dd>Estudiantes de primer a&#241;o de kinesiolog&#237;a, fisioterapia o educaci&#243;n f&#237;sica, y deportistas con inter&#233;s en biomec&#225;nica.</dd>
+    </dl>
+    <div class="ec-autor">
+      <h3>Sobre este blog</h3>
+      <p style="margin:0">Eje Cero publica material did&#225;ctico de biomec&#225;nica introductoria: explicaciones cortas, diagramas propios y ejemplos tomados del deporte y de la vida diaria. L[...]
+    </div>
+  </div>
+</section>
+
+<footer class="ec-wrap" id="ec-creditos">
+  <h3 style="margin-bottom:14px">Cr&#233;ditos y licencia</h3>
+  <div class="ec-licencia">
+    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+      <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" alt="Licencia Creative Commons Atribuci&#243;n-NoComercial-CompartirIgual 4.0 Internacional" width="88" height="31">
+    </a>
+    <p style="margin:0">Esta obra est&#225; bajo una <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">Licencia Creative Commons Atribuci&#243;n-NoComercial-Compar[...]
+  </div>
+  <ul class="ec-creditos-lista">
+    <li><b>Ilustraciones y diagramas</b> Vectores originales creados para esta p&#225;gina. Autor&#237;a propia, publicados bajo CC BY-NC-SA 4.0.</li>
+    <li><b>Tipograf&#237;as</b> Archivo y Source Serif 4, distribuidas por Google Fonts bajo SIL Open Font License 1.1, que permite uso libre en obras educativas y comerciales.</li>
+    <li><b>Contenido conceptual</b> Elaboraci&#243;n propia a partir de Neumann (2010) y Kapandji (2012), citados en la secci&#243;n de fuentes.</li>
+    <li><b>Componente sonoro</b> Narraci&#243;n generada por s&#237;ntesis de voz del propio dispositivo mediante la Web Speech API, est&#225;ndar abierto del navegador. No se incorporan pistas d[...]
+    <li><b>Sin recursos de terceros</b> La p&#225;gina no incorpora fotograf&#237;as, videos ni m&#250;sica de bancos externos, por lo que no hay licencias adicionales que reportar.</li>
+  </ul>
+  <p style="margin-top:22px">Eje Cero &#8212; apuntes de biomec&#225;nica aplicada. Material de apoyo acad&#233;mico; no sustituye la valoraci&#243;n kin&#233;sica presencial.</p>
+</footer>
+</div>
+
+<script>
+/* Narraci f3n por secci f3n. Si Blogger elimina este bloque, los botones
+   permanecen ocultos y el art edculo se lee con normalidad. */
+(function(){
+  if(!('speechSynthesis' in window)) return;
+  var play='<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.6a1 1 0 0 0-1.6-.8L3.4 3.2H1.6A1.6 1.6 0 0 0 0 4.8v6.4a1.6 1.6 0 0 0 1.6 1.6h1.8l3 2.4A1 1 0 0 0 8 14.4zM[...]
+  var stop='<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" rx="1.5"/></svg>';
+  var activo=null;
+  function reset(b){ b.dataset.playing="false"; b.innerHTML=play+'<span>Escuchar esta secci f3n</span>'; b.setAttribute("aria-label","Escuchar la narraci f3n de esta secci f3n"); }
+  function voz(){
+    var v=speechSynthesis.getVoices();
+    var es=v.filter(function(x){return /^es\b|^es[-_]/i.test(x.lang);});
+    return es.filter(function(x){return /es[-_](CO|419|MX|US)/i.test(x.lang);})[0] || es[0] || null;
+  }
+  var nota=document.querySelector(".ec-post .ec-audio-nota");
+  if(nota) nota.removeAttribute("hidden");
+  var btns=document.querySelectorAll(".ec-post .ec-audio-btn");
+  Array.prototype.forEach.call(btns,function(b){
+    b.removeAttribute("hidden"); reset(b);
+    b.addEventListener("click",function(){
+      var sonando=b.dataset.playing==="true";
+      speechSynthesis.cancel();
+      if(activo) reset(activo);
+      if(sonando){ activo=null; return; }
+      var u=new SpeechSynthesisUtterance(b.dataset.nar);
+      u.lang="es-ES"; u.rate=0.97;
+      var v=voz();
+      if(v){ u.voice=v; u.lang=v.lang; }
+      u.onend=u.onerror=function(){ reset(b); activo=null; };
+      b.dataset.playing="true";
+      b.innerHTML=stop+'<span>Detener</span>';
+      b.setAttribute("aria-label","Detener la narraci f3n");
+      activo=b;
+      speechSynthesis.speak(u);
+    });
+  });
+})();
+</script>
